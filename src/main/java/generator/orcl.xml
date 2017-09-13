@@ -30,7 +30,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@192.168.110.228:1521:orcl" userId="ljssj"
+						connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl" userId="ljssj"
 						password="ljssj">
 			<!-- 针对oracle数据库 注解-->
 			<property name="remarksReporting" value="true"></property>
