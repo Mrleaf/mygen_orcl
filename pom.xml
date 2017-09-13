@@ -7,7 +7,16 @@
     <groupId>mygen_orcl</groupId>
     <artifactId>mygen_orcl</artifactId>
     <version>1.0</version>
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.oracle</groupId>
