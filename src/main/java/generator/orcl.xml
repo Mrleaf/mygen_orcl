@@ -6,7 +6,7 @@
 <generatorConfiguration>
 
 	<!-- <classPathEntry location="./generator/mysql-connector-java-5.1.6-bin.jar" /> -->
-	<classPathEntry location="‪D://MavenStore//com//oracle//ojdbc6//11.2.0.3//ojdbc6-11.2.0.3.jar" />
+	<classPathEntry location="E://MavenStore//com//oracle//ojdbc6//11.2.0.3//ojdbc6-11.2.0.3.jar" />
 	<context id="emerchant" targetRuntime="MyBatis3">
 		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
 			<property name="searchString" value="Example$" />
@@ -42,20 +42,20 @@
 		</javaTypeResolver>
 		
 		<!-- 自动生成代码的位置 -->
-		<javaModelGenerator targetPackage="com.leaf.model" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="com.ssj.model" targetProject="target/src_model">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		
-		<sqlMapGenerator targetPackage="mapper"  targetProject="src/main/java">
+		<sqlMapGenerator targetPackage="mapper"  targetProject="target/resources_xmlmapper">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.leaf.dao" targetProject="src/main/java">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.ssj.dao" targetProject="target/src_javamapper">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-		<table tableName="BIZ_TASK_INFO"			domainObjectName="BizTaskInfo"/>
+
 		<!--<table schema="my" tableName="T_TEST"   domainObjectName="TTest"/>-->
 	
 	
