@@ -58,6 +58,56 @@ public class MyBatis3FormattingUtilities {
     }
 
     /**
+     * leaf
+     * @param introspectedColumn
+     * @param prefix
+     * @return
+     */
+    public static String getParameterClauseMax(
+            IntrospectedColumn introspectedColumn, String prefix) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("#{"); //$NON-NLS-1$
+        sb.append(introspectedColumn.getJavaProperty(prefix)).append("Max");
+        sb.append(",jdbcType="); //$NON-NLS-1$
+        sb.append(introspectedColumn.getJdbcTypeName());
+
+        if (stringHasValue(introspectedColumn.getTypeHandler())) {
+            sb.append(",typeHandler="); //$NON-NLS-1$
+            sb.append(introspectedColumn.getTypeHandler());
+        }
+
+        sb.append('}');
+
+        return sb.toString();
+    }
+
+    /**
+     * leaf
+     * @param introspectedColumn
+     * @param prefix
+     * @return
+     */
+    public static String getParameterClauseMin(
+            IntrospectedColumn introspectedColumn, String prefix) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("#{"); //$NON-NLS-1$
+        sb.append(introspectedColumn.getJavaProperty(prefix)).append("Min");
+        sb.append(",jdbcType="); //$NON-NLS-1$
+        sb.append(introspectedColumn.getJdbcTypeName());
+
+        if (stringHasValue(introspectedColumn.getTypeHandler())) {
+            sb.append(",typeHandler="); //$NON-NLS-1$
+            sb.append(introspectedColumn.getTypeHandler());
+        }
+
+        sb.append('}');
+
+        return sb.toString();
+    }
+
+    /**
      * The phrase to use in a select list. If there is a table alias, the value
      * will be "alias.columnName as alias_columnName"
      * 

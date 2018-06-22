@@ -39,6 +39,11 @@ public class ExampleWhereClauseElementMyGenerator  extends AbstractXmlElementGen
         
         for (IntrospectedColumn introspectedColumn : introspectedTable.getNonPrimaryKeyColumns()) {
             eq(whereElement, introspectedColumn);
+            if(introspectedColumn.isJDBCDateColumn()||introspectedColumn.isJDBCTimeColumn()){
+                //leaf 时间字段添加区间查询
+                ge(whereElement, introspectedColumn);
+                le(whereElement, introspectedColumn);
+            }
             if(introspectedColumn.isJdbcCharacterColumn() || introspectedColumn.isStringColumn() || introspectedColumn.isIntegerNumber() ){
             in(whereElement, introspectedColumn);
             }
@@ -69,7 +74,7 @@ public class ExampleWhereClauseElementMyGenerator  extends AbstractXmlElementGen
 		XmlElement isNotNullElement = new XmlElement("if"); //$NON-NLS-1$
 		StringBuilder sb = new StringBuilder();
         sb.setLength(0);
-        sb.append(introspectedColumn.getJavaProperty("example."));
+        sb.append(introspectedColumn.getJavaProperty("example.")).append("Min");
         sb.append(" != null"); //$NON-NLS-1$
         isNotNullElement.addAttribute(new Attribute("test", sb.toString())); //$NON-NLS-1$
         whereElement.addElement(isNotNullElement);
@@ -77,8 +82,8 @@ public class ExampleWhereClauseElementMyGenerator  extends AbstractXmlElementGen
         sb.setLength(0);
         sb.append(" and ");
         sb.append(MyBatis3FormattingUtilities.getEscapedColumnName(introspectedColumn));
-        sb.append(" >= "); //$NON-NLS-1$
-        sb.append(MyBatis3FormattingUtilities.getParameterClause(introspectedColumn, "example."));
+        sb.append(" &gt;= "); //$NON-NLS-1$
+        sb.append(MyBatis3FormattingUtilities.getParameterClauseMin(introspectedColumn, "example."));
         isNotNullElement.addElement(new TextElement(sb.toString()));
 	}
 	
@@ -94,8 +99,8 @@ public class ExampleWhereClauseElementMyGenerator  extends AbstractXmlElementGen
         sb.setLength(0);
         sb.append(" and ");
         sb.append(MyBatis3FormattingUtilities.getEscapedColumnName(introspectedColumn));
-        sb.append(" <= "); //$NON-NLS-1$
-        sb.append(MyBatis3FormattingUtilities.getParameterClause(introspectedColumn, "example."));
+        sb.append(" &lt;= "); //$NON-NLS-1$
+        sb.append(MyBatis3FormattingUtilities.getParameterClauseMax(introspectedColumn, "example."));
         isNotNullElement.addElement(new TextElement(sb.toString()));
 	}
 	

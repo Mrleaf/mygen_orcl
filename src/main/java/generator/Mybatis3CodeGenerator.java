@@ -5,14 +5,8 @@ package generator;
 
 
 import org.mybatis.generator.api.ShellRunner;
-import org.mybatis.generator.config.xml.ParserEntityResolver;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;

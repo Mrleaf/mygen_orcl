@@ -7,15 +7,15 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        String str ="SYS_USER,KEY_ENTITY_INFO";
+        String str ="BIZ_TASK_INFO";
         toTableXml(str);
-        toDataConfigXml(str);
-        System.out.println("-------");
-        managedSchema(str);
-        str = "t_lic_equipment_producted";
-        System.out.println(toCamelCase(str));
-        System.out.println(toCapitalizeCamelCase(str));
-        System.out.println(toUnderlineName(str));
+//        toDataConfigXml(str);
+//        System.out.println("-------");
+//        managedSchema(str);
+//        str = "t_lic_equipment_producted";
+//        System.out.println(toCamelCase(str));
+//        System.out.println(toCapitalizeCamelCase(str));
+//        System.out.println(toUnderlineName(str));
 
     }
 

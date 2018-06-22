@@ -12,7 +12,7 @@
 			<property name="searchString" value="Example$" />
 			<property name="replaceString" value="Criteria" />
 		</plugin>
-		
+
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
 			<property name="suppressJavaInterface" value="false"/>
 		</plugin>
@@ -30,8 +30,8 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-						connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl" userId="admin"
-						password="admin">
+						connectionURL="jdbc:oracle:thin:@192.168.11.228:1521:orcl" userId="dxscjg"
+						password="dxscjg">
 			<!-- 针对oracle数据库 注解-->
 			<property name="remarksReporting" value="true"></property>
 			<!-- 针对mysql数据库 注解
@@ -55,12 +55,10 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-
 		<!--<table schema="my" tableName="T_TEST"   domainObjectName="TTest"/>-->
-	
-	
-	
-	
+
+
+		<table schema="dxscjg" tableName="BIZ_TASK_INFO"   domainObjectName="BizTaskInfo"/>
 	
 	
 	</context>

@@ -207,7 +207,7 @@ public class IntrospectedColumn {
     public boolean isJDBCTimeColumn() {
         return fullyQualifiedJavaType.equals(FullyQualifiedJavaType
                 .getDateInstance())
-                && "TIME".equalsIgnoreCase(jdbcTypeName); //$NON-NLS-1$
+                && ("TIME".equalsIgnoreCase(jdbcTypeName)||"TIMESTAMP".equalsIgnoreCase(jdbcTypeName)); //$NON-NLS-1$ leaf; //$NON-NLS-1$
     }
 
     public String getTypeHandler() {
